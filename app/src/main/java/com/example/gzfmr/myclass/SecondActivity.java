@@ -1,5 +1,6 @@
 package com.example.gzfmr.myclass;
 
+import android.content.ComponentName;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -40,7 +41,10 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
 
                 intent.putExtra(TAG, "I'm back");
 
-                intent.setClass(this, MainActivity.class);
+                ComponentName cn = new ComponentName(this, MainActivity.class);
+
+//                intent.setClass(this, MainActivity.class);
+                intent.setComponent(cn);
 
                 startActivity(intent);
 
