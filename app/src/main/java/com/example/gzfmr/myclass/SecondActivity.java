@@ -45,6 +45,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
                 intent = new Intent();
                 intent.putExtra(TAG, "i am comming third activity");
                 intent.setAction(MACTION);
+                intent.addCategory(Intent.CATEGORY_DEFAULT);
                 startActivity(intent);
                 this.finish();
 
