@@ -11,6 +11,7 @@ import android.widget.Toast;
 public class SecondActivity extends AppCompatActivity implements View.OnClickListener{
     public static final String TAG = "SecondActivity";
     private Button btnBack;
+    private Button btnStart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,20 +29,35 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         btnBack= (Button) findViewById(R.id.btn_back);
         btnBack.setOnClickListener(this);
 
+        btnStart= (Button) findViewById(R.id.btn_start);
+        btnStart.setOnClickListener(this);
+
     }
 
     @Override
     public void onClick(View view) {
 
+        Intent intent = null;
+        intent = new Intent();
+        ComponentName cn = null;
+
         switch (view.getId()) {
+            case R.id.btn_start:
+
+                cn = new ComponentName(this, SecondActivity.class);
+
+                intent.setComponent(cn);
+
+                startActivity(intent);
+
+
+                break;
             case R.id.btn_back:
 
-                Intent intent = null;
-                intent = new Intent();
 
                 intent.putExtra(TAG, "I'm back");
 
-                ComponentName cn = new ComponentName(this, MainActivity.class);
+                cn = new ComponentName(this, MainActivity.class);
 
 //                intent.setClass(this, MainActivity.class);
                 intent.setComponent(cn);
