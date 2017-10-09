@@ -10,7 +10,9 @@ import android.widget.Toast;
 
 public class SecondActivity extends AppCompatActivity implements View.OnClickListener{
     public static final String TAG = "SecondActivity";
+    public static final String MACTION = "android.intent.action.simple.THIRDACTIVITY";
     private Button btnBack;
+    private Button btnThird;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,15 +30,27 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         btnBack= (Button) findViewById(R.id.btn_back);
         btnBack.setOnClickListener(this);
 
+        btnThird = (Button) findViewById(R.id.btn_Third);
+        btnThird.setOnClickListener(this);
+
     }
 
     @Override
     public void onClick(View view) {
+        Intent intent = null;
 
         switch (view.getId()) {
+            case R.id.btn_Third:
+
+                intent = new Intent();
+                intent.putExtra(TAG, "i am comming third activity");
+                intent.setAction(MACTION);
+                startActivity(intent);
+                this.finish();
+
+                break;
             case R.id.btn_back:
 
-                Intent intent = null;
                 intent = new Intent();
 
                 intent.putExtra(TAG, "I'm back");
